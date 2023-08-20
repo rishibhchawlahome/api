@@ -19,7 +19,7 @@ async function getToken() {
     });
     const data = await response.json();
     console.log(response,data);
-    return data?.data.token;
+    return data?data.token:"No Token"
 }
 async function getProductData(token) {
     const response = await fetch("https://dev-test.cimet.io/plan-list", {
@@ -34,7 +34,7 @@ async function getProductData(token) {
         },
     });
     const data = await response.json();
-    return data?.data.electricity;
+    return data?data.electricity:{}
 }
 
 app.get("/getdata", async (req, res) => {
